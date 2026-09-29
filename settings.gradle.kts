@@ -39,6 +39,36 @@ dependencyResolutionManagement {
 
 rootProject.name = "wallet"
 
+fun cloneRepositoryIfNotExists(dirName: String, branch: String, url: String) {
+    val dir = rootDir.resolve(dirName)
+    if (!dir.exists() || (dir.isDirectory && dir.list().isNullOrEmpty())) {
+        println("Directory '$dirName' not found or empty. Cloning $url (branch $branch)...")
+        val exitCode = try {
+            ProcessBuilder("git", "clone", "-b", branch, url, dirName)
+                .directory(rootDir)
+                .inheritIO()
+                .start()
+                .waitFor()
+        } catch (e: Exception) {
+            throw GradleException("Failed to execute git clone for '$dirName': ${e.message}", e)
+        }
+        if (exitCode != 0) {
+            throw GradleException("Failed to clone $url (branch $branch) into '$dirName'. Exit code: $exitCode")
+        }
+    }
+}
+
+cloneRepositoryIfNotExists(
+    dirName = "core",
+    branch = "develop-0.30.2",
+    url = "https://github.com/german-national-wallet/eudi-lib-android-wallet-core"
+)
+cloneRepositoryIfNotExists(
+    dirName = "openid4vci",
+    branch = "develop-0.13.1",
+    url = "https://github.com/german-national-wallet/eudi-lib-jvm-openid4vci-kt"
+)
+
 include(":app")
 include(":business-logic")
 include(":ui-logic")

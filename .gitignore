@@ -74,6 +74,8 @@ fastlane/report.xml
 .kotlin/*
 
 #external modules
+core/
+openid4vci/
 internal-openid4vci
 /bundletool-all-1.18.1.jar
 app.apks

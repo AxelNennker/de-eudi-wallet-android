@@ -23,8 +23,9 @@ talks to a service works until you supply your own — see
 ### 1. Fetch the two library submodules
 
 The wallet core and OpenID4VCI libraries are built from source. Their URLs and
-branches are in [`.gitmodules`](.gitmodules), but **this mirror cannot carry
-submodule links**, so clone them by hand into the repository root:
+branches are in [`.gitmodules`](.gitmodules). `settings.gradle.kts` will automatically
+detect if these directories are missing and clone them on the first build. Alternatively,
+you can clone them manually into the repository root:
 
 ```sh
 git clone -b develop-0.30.2 https://github.com/german-national-wallet/eudi-lib-android-wallet-core core
