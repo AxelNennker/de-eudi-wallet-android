@@ -65,7 +65,7 @@ cloneRepositoryIfNotExists(
 )
 cloneRepositoryIfNotExists(
     dirName = "openid4vci",
-    branch = "develop-0.13.1",
+    branch = "develop-0.14.0",
     url = "https://github.com/german-national-wallet/eudi-lib-jvm-openid4vci-kt"
 )
 

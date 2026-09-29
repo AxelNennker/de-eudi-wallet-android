@@ -29,7 +29,7 @@ you can clone them manually into the repository root:
 
 ```sh
 git clone -b develop-0.30.2 https://github.com/german-national-wallet/eudi-lib-android-wallet-core core
-git clone -b develop-0.13.1 https://github.com/german-national-wallet/eudi-lib-jvm-openid4vci-kt openid4vci
+git clone -b develop-0.14.0 https://github.com/german-national-wallet/eudi-lib-jvm-openid4vci-kt openid4vci
 ```
 
 Both are public forks. `settings.gradle.kts` includes them as `:core:wallet-core`
